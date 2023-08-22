@@ -58,23 +58,13 @@ public class Utils {
     }
 
 
-    public StringBuilder readResopnseData(InputStream in) {
-        if(in == null ) return null;
+    /**
+     * xml to json
+     * */
+    public void xmlToJson(){
 
-        StringBuilder sb = new StringBuilder();
-        String line = "";
-
-        try (InputStreamReader ir = new InputStreamReader(in);
-             BufferedReader br = new BufferedReader(ir)){
-            while( (line = br.readLine()) != null) {
-                sb.append(line);
-            }
-        } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
-        return sb;
     }
+
 
 
 }
