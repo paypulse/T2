@@ -1,5 +1,6 @@
 package com.example.t2_step1.Common;
 
+import com.example.t2_step1.Gallery.Domain.GalleryEntity;
 import com.google.gson.JsonArray;
 import io.swagger.v3.core.util.Json;
 import org.json.JSONArray;
@@ -81,6 +82,12 @@ public class Utils {
 
 
         System.out.println(item);
+        GalleryEntity entity = new GalleryEntity();
+
+        for(Object obj: item){
+            System.out.println(obj);
+
+        }
 
 
 
