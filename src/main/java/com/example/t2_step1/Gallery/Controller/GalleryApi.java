@@ -1,4 +1,4 @@
-package com.example.t2_step1.Gallery;
+package com.example.t2_step1.Gallery.Controller;
 
 
 import com.example.t2_step1.Common.CommonRes;
