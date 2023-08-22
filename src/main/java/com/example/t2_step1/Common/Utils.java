@@ -1,7 +1,14 @@
 package com.example.t2_step1.Common;
 
+import com.google.gson.JsonArray;
+import io.swagger.v3.core.util.Json;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.XML;
+
 import java.io.*;
 import java.net.HttpURLConnection;
+
 import java.net.URL;
 
 public class Utils {
@@ -11,8 +18,8 @@ public class Utils {
         URL url = null;
         HttpURLConnection urlConnection= null;
 
-        int connTimeout = 5000;
-        int readTimeout = 9000;
+        int connTimeout = 500000000;
+        int readTimeout = 100000000;
         int responseCode = 0;
 
         String urlT = realUrl +"?MobileOS="+mobileOs+"&MobileApp="+mobileApp+"&serviceKey="+serviceKey;
@@ -21,7 +28,7 @@ public class Utils {
         try {
 
 
-            url = new URL(urlT );
+            url = new URL(urlT);
 
 
             System.out.println(url);
@@ -45,6 +52,9 @@ public class Utils {
                 }
 
 
+                xmlToJson(sb);
+
+
 
             }
 
@@ -61,7 +71,20 @@ public class Utils {
     /**
      * xml to json
      * */
-    public void xmlToJson(){
+    public static void xmlToJson(StringBuilder sb){
+        JSONObject xmlJSONObject = XML.toJSONObject(sb.toString());
+        //String item = xmlJSONObject.getString("response");
+        JSONObject response =xmlJSONObject.getJSONObject("response");
+        JSONObject bodyStr = response.getJSONObject("body");
+        JSONObject items = bodyStr.getJSONObject("items");
+        JSONArray item = items.getJSONArray("item");
+
+
+        System.out.println(item);
+
+
+
+
 
     }
 
